@@ -1,0 +1,14 @@
+event_date,ticker,headline,source
+07/10/2022,NVDA,BIS issued sweeping new export controls covering advanced computing chips and chipmaking equipment bound for China,BIS.gov / Wikipedia
+07/10/2022,NVDA,"Analysts and commentators called the October 2022 controls a landmark shift in US-China tech relations, with one describing it as close to an act of economic war",The Wire China
+07/10/2022,NVDA,Nvidia and peer chipmakers traded lower as reports emerged the US planned to further tighten the chip export restrictions announced in October,Benzinga
+07/10/2022,AMD,AMD shares fell alongside Nvidia as the new China export restrictions rattled the broader semiconductor sector,Yahoo Finance / CNBC coverage
+07/10/2022,TSM,"The Philadelphia Semiconductor Index fell roughly 8% following the October 2022 export control announcement, based on CSIS analysis of the sector-wide reaction",CSIS
+17/10/2023,NVDA,"BIS released updated interim final rules on October 17, 2023, closing loopholes in the 2022 controls and expanding country coverage",Skadden / Mayer Brown legal summaries
+17/10/2023,NVDA,Then-Commerce Secretary Gina Raimondo said the update was meant to close loopholes and signaled the rules would likely be revised annually,Skadden
+17/10/2023,NVDA,"The Philadelphia Semiconductor Index fell roughly 3% following the October 2023 update, a smaller move than the 2022 announcement, per CSIS analysis",CSIS
+01/01/2024,ASML,ASML shares dipped about 1.3% after the Dutch government partially revoked an export licence for two of its lithography machine models bound for China,Reuters
+01/01/2024,ASML,China's foreign ministry criticized the Dutch licence revocation and urged the Netherlands to protect bilateral supply chain stability,Reuters
+02/12/2024,NVDA,BIS issued new December 2024 rules placing country-wide restrictions on high-bandwidth memory (HBM) exports to China for the first time,Covington & Burling legal summary
+02/12/2024,NVDA,Analysts noted the new HBM restrictions could indirectly benefit Nvidia by hurting Chinese AI chip competitors reliant on the same memory technology,CSIS
+02/12/2024,ASML,The December 2024 rules also expanded restrictions on semiconductor manufacturing equipment and added new entities to the BIS Entity List,Lexology
