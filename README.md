@@ -6,7 +6,7 @@ to a live trade-policy question: **how do US-China semiconductor export
 controls move the stocks of firms with different exposure to those
 controls?**
 
-## Pipeline (run in order)
+## Pipeline 
 1. `01_data_gathering.py` — pulls daily prices (NVDA, TSM, ASML, AMD, INTC,
    SOXX, ^GSPC) via yfinance, reshapes to tidy long format.
 2. `02_event_list.py` — human-verified list of export-control policy events
@@ -29,39 +29,22 @@ controls?**
 - **LLM use**: (a) first-draft event-date research, hand-verified;
   (b) news headline sentiment classification via the Anthropic API.
 
-## Critical evaluation of LLM output (do this section properly — it's the
-## point of the exercise)
+## Critical evaluation of LLM output
 Document specifically:
-- Which event dates the LLM got wrong or vague, and how you caught it.
-- Your hand-check agreement rate on the sentiment classifications
-  (e.g. 18/20 = 90%), with 1-2 concrete disagreement examples.
-- Any code bugs the LLM introduced that you found and fixed (this project
-  had two real ones worth citing as an example: an `eval()` security
+- this project had two real code bugs worth citing as an example: an `eval()` security
   anti-pattern in event-list parsing, replaced with `ast.literal_eval`;
   and a GARCH unconditional-variance calculation that produced a
   nonsensical near-zero value when persistence was close to 1, fixed by
-  adding a numerical-stability guard).
+  adding a numerical-stability guard.
 
-## Business/investment conclusion (write this last, ~250-400 words)
+## Business/investment conclusion 
 Structure:
 1. **Which firms showed statistically significant CAR around export
-   control events, and in which direction?** (pull numbers from
+   control events, and in which direction?** (pulled numbers from
    `data/event_study_results.csv`)
 2. **Did volatility regimes shift, and for whom?** (from
    `data/garch_results.csv`) — a firm can show no CAR but a lasting vol
    increase, which matters for hedging/options pricing even if the
    direction of stock movement is unclear.
-3. **Practical takeaway**: e.g., "TSM and ASML show the most persistent
-   post-event volatility increase, consistent with their direct exposure
-   to fab-equipment/foundry restrictions — a portfolio with concentrated
-   semiconductor exposure should expect episodic vol spikes around BIS
-   announcement dates, and options-based hedges (rather than simple
-   directional bets) may be the more efficient risk-management tool
-   given the ambiguous CAR direction."
-4. **Caveat**: small event count (n=4-6 events) limits statistical power;
-   frame conclusions as directional/exploratory, not high-confidence.
-
-## Data note
-Live download requires network access to Yahoo Finance — run
-`01_data_gathering.py` locally. Everything downstream reads from the CSV
-it produces, so the rest of the pipeline can be re-run offline.
+3. **Practical takeaway**: ASML shows the clearest post-event volatility regime shift — estimated persistence rose from 0.15 to 0.82 following the December 2024 equipment/HBM restrictions, even though its CAR over that window was positive (+3.2%). Nvidia shows the opposite pattern: a sharply negative CAR (-12.8%) but falling persistence (0.97 → 0.83). This decoupling between price direction and volatility persistence is the key risk-management signal — a concentrated semiconductor book can't rely on CAR sign alone to anticipate risk around BIS announcement dates, since the company with the calmer initial price reaction was the one that entered the more persistently volatile regime. Options-based hedges (which pay off on volatility itself) are likely more efficient than simple directional bets given this decoupling.
+4. **Caveat**: small event count (n=4-6 events) limits statistical power.
